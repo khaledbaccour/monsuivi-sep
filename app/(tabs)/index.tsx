@@ -1,70 +1,106 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import Title from '@/components/Title';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
+// Interface des props pour la navigation
+interface HomeScreenProps {
+  navigation: {
+    navigate: (screen: string, params?: any) => void;
+  };
 }
 
+const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
+  return (
+    <ScrollView style={styles.container}>
+      {/* Composant Title */}
+      <Title />
+
+      {/* Message de bienvenue */}
+      <Text style={styles.welcomeText}>Bienvenue Ahmed,</Text>
+
+      {/* Section Derniers Podcasts */}
+      <Text style={styles.sectionTitle}>Derniers Podcasts</Text>
+      <View style={styles.podcastContainer}>
+        <TouchableOpacity
+          style={styles.podcastItem}
+          onPress={() => navigation.navigate('PodcastDetail', { id: 1 })}
+        >
+          <Text style={styles.podcastText}>Épisode de Podcast 1 : Comprendre la sclérose en plaques</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.podcastItem}
+          onPress={() => navigation.navigate('PodcastDetail', { id: 2 })}
+        >
+          <Text style={styles.podcastText}>Épisode de Podcast 2 : Vivre avec la sclérose en plaques</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Section Derniers Blogs */}
+      <Text style={styles.sectionTitle}>Derniers Blogs</Text>
+      <View style={styles.blogContainer}>
+        <TouchableOpacity
+          style={styles.blogItem}
+          onPress={() => navigation.navigate('BlogDetail', { id: 1 })}
+        >
+          <Text style={styles.blogText}>Article de Blog 1 : Surmonter les défis de la sclérose en plaques</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.blogItem}
+          onPress={() => navigation.navigate('BlogDetail', { id: 2 })}
+        >
+          <Text style={styles.blogText}>Article de Blog 2 : Espoir et résilience face à la sclérose en plaques</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
+  );
+};
+
+// Styles pour la page d'accueil
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    backgroundColor: '#fff',
+    flex: 1,
+    padding: 16,
   },
-  stepContainer: {
-    gap: 8,
+  welcomeText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    alignSelf: 'flex-start',
+    marginBottom: 24,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    marginTop: 24,
+    color: '#333',
+  },
+  podcastContainer: {
+    marginBottom: 16,
+  },
+  podcastItem: {
+    padding: 12,
+    backgroundColor: '#e0f7fa',
+    borderRadius: 8,
     marginBottom: 8,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  podcastText: {
+    fontSize: 16,
+    color: '#00796b',
+  },
+  blogContainer: {
+    marginBottom: 16,
+  },
+  blogItem: {
+    padding: 12,
+    backgroundColor: '#ffecb3',
+    borderRadius: 8,
+    marginBottom: 8,
+  },
+  blogText: {
+    fontSize: 16,
+    color: '#e65100',
   },
 });
+
+export default HomeScreen;

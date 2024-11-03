@@ -1,0 +1,47 @@
+[
+  {
+    "username": "Neurologist_Dr_Gassara",
+    "profile_image": "https://randomuser.me/api/portraits/men/32.jpg",
+    "story": "Bonjour, comment vous sentez-vous aujourd'hui? Avez-vous remarqué des changements dans votre niveau de fatigue ou des nouveaux symptômes?",
+    "shares": 0,
+    "comments": 3,
+    "date": "2024-10-12",
+    "likes": 10
+  },
+  {
+    "username": "Neurologist_Dr_Slama",
+    "profile_image": "https://randomuser.me/api/portraits/men/65.jpg",
+    "story": "Bonjour Dr Slama, la fatigue est assez intense aujourd'hui, et mes jambes semblent plus faibles que d'habitude. Dois-je m'inquiéter?",
+    "shares": 0,
+    "comments": 2,
+    "date": "2024-10-12",
+    "likes": 8
+  },
+  {
+    "username": "Physiotherapist_Dr_Ahmed",
+    "profile_image": "https://randomuser.me/api/portraits/men/75.jpg",
+    "story": "Amira, essayez de faire quelques exercices de renforcement doux pour les jambes si possible. Cela pourrait aider à limiter la perte de mobilité.",
+    "shares": 0,
+    "comments": 1,
+    "date": "2024-10-12",
+    "likes": 12
+  },
+  {
+    "username": "Nutritionist_Dr_Benjamin",
+    "profile_image": "https://randomuser.me/api/portraits/men/46.jpg",
+    "story": "Amira, n'oubliez pas que votre alimentation joue un rôle important dans la gestion des symptômes. Essayez de privilégier des aliments riches en vitamines D et B12.",
+    "shares": 0,
+    "comments": 2,
+    "date": "2024-10-12",
+    "likes": 9
+  },
+  {
+    "username": "Psychologist_Dr_Sophia",
+    "profile_image": "https://randomuser.me/api/portraits/women/56.jpg",
+    "story": "Amira, n'oubliez pas de prendre soin de votre bien-être mental. La fatigue peut avoir un impact sur votre humeur, alors essayez de prendre du temps pour vous détendre et évacuer le stress.",
+    "shares": 0,
+    "comments": 5,
+    "date": "2024-10-12",
+    "likes": 15
+  }
+]
